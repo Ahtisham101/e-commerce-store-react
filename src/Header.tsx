@@ -23,10 +23,10 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { TextField } from "@mui/material";
-
+import Link from "next/link";
+import Image from "next/image";
 const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Products", "Pricing", "Blog"];
-type Anchor = "top" | "left" | "bottom" | "right";
+type Anchor = "left" | "right";
 
 export const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -74,7 +74,7 @@ export const Header = () => {
 
   const list = (anchor: Anchor) => (
     <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 400 }}
+      sx={{ width: anchor === "left" || anchor === "right" ? "auto" : 400 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -127,7 +127,7 @@ export const Header = () => {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={toggleDrawer("left", true)}
               color="inherit"
             >
               <MenuIcon />
@@ -152,7 +152,6 @@ export const Header = () => {
             >
               {(["left"] as const).map((anchor) => (
                 <React.Fragment key={anchor}>
-                  <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
                   <SwipeableDrawer
                     anchor={anchor}
                     open={state[anchor]}
@@ -193,7 +192,7 @@ export const Header = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={toggleDrawer("right", true)} sx={{ p: 0 }}>
                 <ShoppingCartIcon sx={{ color: "white" }} />
                 <Typography sx={{ color: "white", marginLeft: "0.5rem" }}>
                   1
@@ -218,7 +217,6 @@ export const Header = () => {
             >
               {(["right"] as const).map((anchor) => (
                 <React.Fragment key={anchor}>
-                  <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
                   <SwipeableDrawer
                     anchor={anchor}
                     open={state[anchor]}
@@ -268,9 +266,13 @@ export const Header = () => {
                       </Box>
 
                       <Box sx={{ display: "flex", justifyContent: "end" }}>
-                        <Button variant="contained" sx={{ mt: "2rem" }}>
-                          Checkout
-                        </Button>
+                        <Link href="/checkout">
+                          <a>
+                            <Button variant="contained" sx={{ mt: "2rem" }}>
+                              Checkout
+                            </Button>
+                          </a>
+                        </Link>
                       </Box>
                     </Box>
                   </SwipeableDrawer>

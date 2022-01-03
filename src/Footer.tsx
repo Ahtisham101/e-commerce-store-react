@@ -1,22 +1,5 @@
 import React from "react";
-import {
-  AppBar,
-  Box,
-  Button,
-  Checkbox,
-  Container,
-  Divider,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  Link,
-  OutlinedInput,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -25,23 +8,39 @@ export function Footer() {
     <Box
       sx={{
         bgcolor: "black",
-        display: "flex",
+        display: { xs: "block", md: "flex" },
         alignItems: "center",
         justifyContent: "space-evenly",
-
         py: "3rem",
       }}
     >
-      <Box>
+      <Box
+        sx={{
+          display: { xs: "flex", md: "inline" },
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+        }}
+      >
         <Typography
-          sx={{ color: "white", fontSize: "1.2rem", fontWeight: "bold" }}
+          sx={{
+            color: "white",
+            fontSize: "1.2rem",
+            fontWeight: "bold",
+          }}
         >
           Customers
         </Typography>
         <Typography sx={{ color: "	rgb(128, 128, 128)" }}>Buyer</Typography>
         <Typography sx={{ color: "	rgb(128, 128, 128)" }}>Supplier</Typography>
       </Box>
-      <Box sx={{ mt: "1.5rem" }}>
+      <Box
+        sx={{
+          display: { xs: "flex", md: "inline" },
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+          mt: "1.5rem",
+        }}
+      >
         <Typography
           sx={{ color: "white", fontSize: "1.2rem", fontWeight: "bold" }}
         >
@@ -51,7 +50,14 @@ export function Footer() {
         <Typography sx={{ color: "	rgb(128, 128, 128)" }}> Careers</Typography>
         <Typography sx={{ color: "	rgb(128, 128, 128)" }}>Contact us</Typography>
       </Box>
-      <Box>
+      <Box
+        sx={{
+          display: { xs: "flex", md: "inline" },
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+          mt: { xs: "1.5rem", md: "0rem" },
+        }}
+      >
         <Typography
           sx={{ color: "white", fontSize: "1.2rem", fontWeight: "bold" }}
         >
@@ -64,7 +70,7 @@ export function Footer() {
           Privacy Policy
         </Typography>
       </Box>
-      <Box>
+      <Box sx={{ mt: { xs: "1.5rem", md: "0rem" } }}>
         <Typography
           sx={{
             color: "white",
@@ -75,15 +81,22 @@ export function Footer() {
         >
           Follow us
         </Typography>
-        <IconButton aria-label="delete" sx={{ color: "white" }}>
-          <FacebookIcon />
-        </IconButton>
-        <IconButton aria-label="delete" sx={{ color: "white" }}>
-          <InstagramIcon />
-        </IconButton>
-        <IconButton aria-label="delete" sx={{ color: "white" }}>
-          <LinkedInIcon />
-        </IconButton>
+        <Box
+          sx={{
+            display: { xs: "flex", md: "inline" },
+            justifyContent: "center",
+          }}
+        >
+          <IconButton aria-label="delete" sx={{ color: "white" }}>
+            <FacebookIcon />
+          </IconButton>
+          <IconButton aria-label="delete" sx={{ color: "white" }}>
+            <InstagramIcon />
+          </IconButton>
+          <IconButton aria-label="delete" sx={{ color: "white" }}>
+            <LinkedInIcon />
+          </IconButton>
+        </Box>
       </Box>
     </Box>
   );

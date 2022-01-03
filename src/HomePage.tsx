@@ -11,6 +11,7 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import Image from "next/image";
 import coverPic from "../public/cover.jpg";
+import Slider from "react-slick";
 
 const itemData = [
   {
@@ -64,13 +65,39 @@ const itemData = [
 ];
 
 export function HomePage() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 1800,
+    cssEase: "ease",
+    arrows: false,
+  };
   return (
     <>
       <Header />
+      {/* <Box>
+        <Image src={coverPic} alt="coverPic" height={3000} />
+      </Box> */}
       <Box>
-        <Image src={coverPic} alt="coverPic" />
+        <Slider {...settings}>
+          <Box>
+            <Image src={coverPic} alt="coverPic" height={2500} />
+          </Box>
+          <Box>
+            <Image src={coverPic} alt="coverPic" height={2500} />
+          </Box>
+          <Box>
+            <Image src={coverPic} alt="coverPic" height={2500} />
+          </Box>
+          <Box>
+            <Image src={coverPic} alt="coverPic" height={2500} />
+          </Box>
+        </Slider>
       </Box>
-
       <Box
         className="maincontainer"
         sx={{
@@ -78,55 +105,92 @@ export function HomePage() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          my: "2rem",
         }}
       >
-        <Box sx={{ marginTop: "2rem" }}>
-          <Typography sx={{ fontSize: "2rem" }}>
-            Men Jackets and Vests
-          </Typography>
+        <Box>
+          <Typography sx={{ fontSize: "2rem" }}>Men Jackets</Typography>
         </Box>
         <Box
           className="flex-container-of-image"
           sx={{
-            display: "flex",
+            display: { xs: "block", md: "flex" },
             justifyContent: "center",
             alignItems: "center",
+            mt: "1rem",
           }}
         >
-          <Box sx={{ mr: "0.5rem" }}>
+          <Box
+            sx={{
+              mr: { xs: "0rem", md: "1.3rem" },
+              border: "1px solid 	rgb(166, 166, 166)",
+            }}
+          >
             <img
               width={300}
-              height={350}
+              height={351}
               src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/e425b9bb-d388-475f-a646-a44ff62f10f1/sportswear-swoosh-mens-woven-jacket-zwnqMl.jpg"
               alt="logo"
             />
-            <Typography>Product name</Typography>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Button variant="contained">add to cart</Button>
+            <Typography sx={{ fontSize: "1.5rem" }}>Product name</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "end",
+                my: "1rem",
+                mx: "1rem",
+              }}
+            >
+              <Button variant="contained" fullWidth>
+                add to cart
+              </Button>
             </Box>
           </Box>
-          <Box>
+          <Box sx={{ border: "1px solid 	rgb(166, 166, 166)" }}>
             <img
-              width={300}
-              height={350}
               src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/e425b9bb-d388-475f-a646-a44ff62f10f1/sportswear-swoosh-mens-woven-jacket-zwnqMl.jpg"
               alt="logo"
+              width={300}
+              height={350}
             />
-            <Typography>Product name</Typography>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Button variant="contained">add to cart</Button>
+            <Typography sx={{ fontSize: "1.5rem" }}>Product name</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "end",
+                my: "1rem",
+                mx: "1rem",
+              }}
+            >
+              <Button variant="contained" fullWidth>
+                add to cart
+              </Button>
             </Box>
           </Box>
-          <Box sx={{ ml: "0.5rem" }}>
+          <Box
+            sx={{
+              ml: { xs: "0rem", md: "1.3rem" },
+              border: "1px solid 	rgb(166, 166, 166)",
+            }}
+          >
             <img
-              width={300}
-              height={350}
               src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/e425b9bb-d388-475f-a646-a44ff62f10f1/sportswear-swoosh-mens-woven-jacket-zwnqMl.jpg"
               alt="logo"
+              width={300}
+              height={350}
             />
-            <Typography>Product name</Typography>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Button variant="contained">add to cart</Button>
+            <Typography sx={{ fontSize: "1.5rem" }}>Product name</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "end",
+                my: "1rem",
+                mx: "1rem",
+              }}
+            >
+              <Button variant="contained" fullWidth>
+                add to cart
+              </Button>
             </Box>
           </Box>
         </Box>

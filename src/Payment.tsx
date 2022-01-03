@@ -13,6 +13,7 @@ import React from "react";
 import Image from "next/image";
 import visa from "../public/visa.png";
 import { Cart } from "./Cart";
+import { Shipping } from "./Shipping";
 
 export function Payment() {
   const [card, setCard] = React.useState("");
@@ -33,11 +34,7 @@ export function Payment() {
         </Typography>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box>
-            <Box sx={{ width: "40rem" }}>
-              <Typography sx={{ bgcolor: "black", color: "white" }}>
-                1. Shipping
-              </Typography>
-            </Box>
+            <Shipping />
             <Box sx={{ mt: "1rem", bgcolor: "	rgb(38, 128, 217)" }}>
               <Typography sx={{ bgcolor: "black", color: "white" }}>
                 2. Payment
