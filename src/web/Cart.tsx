@@ -1,12 +1,11 @@
 import { Box, Divider, Typography } from "@mui/material";
 import React from "react";
-import Image from "next/image";
 
 export function Cart() {
   return (
     <Box
       sx={{
-        position: "relative",
+        position: { md: "relative" },
         top: "-10rem",
         height: "20rem",
       }}
@@ -25,7 +24,9 @@ export function Cart() {
         </Box>
         <Box sx={{ ml: "1rem" }}>
           <br />
-          <Box component="span">Nike</Box>
+          <Box component="span" sx={{ fontSize: "1.3rem", mt: "1rem" }}>
+            Nike
+          </Box>
           <br /> Free Run 3.0 Women
           <br />
           <Box component="span">
@@ -41,12 +42,19 @@ export function Cart() {
             justifyContent: "end",
           }}
         >
-          <Typography sx={{ ml: "2rem" }}> $99.95</Typography>
+          <Typography sx={{ ml: "2rem", mr: { xs: "1rem" } }}>
+            $99.95
+          </Typography>
         </Box>
       </Box>
       <Divider sx={{ mt: "1.2rem" }} />
       <Box
-        sx={{ display: "flex", justifyContent: "space-between", mt: "1.2rem" }}
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          mt: "1.2rem",
+          mx: { xs: "1rem" },
+        }}
       >
         <Typography>Total</Typography>
         <Typography>$90</Typography>

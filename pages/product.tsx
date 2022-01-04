@@ -1,5 +1,6 @@
 import React from "react";
+import { ProductPage } from "../src/web/ProductPage/ProductPage";
 
-export default function ProductPage() {
-  return <div>product page</div>;
+export default function Product() {
+  return <ProductPage />;
 }

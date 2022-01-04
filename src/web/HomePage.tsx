@@ -1,18 +1,11 @@
-import {
-  Box,
-  Button,
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
-import { Footer } from "./Footer";
-import { Header } from "./Header";
 import Image from "next/image";
-import coverPic from "../public/cover.jpg";
+import coverPic from "../../public/cover.jpg";
 import Slider from "react-slick";
 import Link from "next/link";
+import { Layout } from "./Layout";
+// import { useItemListQuery } from "../store/services/item.service";
 
 const itemData = [
   {
@@ -66,6 +59,9 @@ const itemData = [
 ];
 
 export function HomePage() {
+  // const { data: itemList } = useItemListQuery();
+  // console.log(itemList);
+  // console.log(itemList);
   const settings = {
     dots: true,
     infinite: true,
@@ -79,10 +75,6 @@ export function HomePage() {
   };
   return (
     <>
-      <Header />
-      {/* <Box>
-        <Image src={coverPic} alt="coverPic" height={3000} />
-      </Box> */}
       <Box>
         <Slider {...settings}>
           <Box>
@@ -203,7 +195,6 @@ export function HomePage() {
           </Box>
         </Box>
       </Box>
-      <Footer />
     </>
   );
 }

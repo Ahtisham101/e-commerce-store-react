@@ -22,10 +22,16 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { TextField } from "@mui/material";
-import Link from "next/link";
+import { Link, TextField } from "@mui/material";
+
 import Image from "next/image";
-const pages = ["Products", "Pricing", "Blog"];
+const paths = [
+  { routePath: "/", routeName: "Home" },
+  { routePath: "/", routeName: "Products" },
+  { routePath: "/", routeName: "Pricing" },
+  { routePath: "/", routeName: "Blog" },
+];
+
 type Anchor = "left" | "right";
 
 export const Header = () => {
@@ -179,13 +185,19 @@ export const Header = () => {
               justifyContent: "center",
             }}
           >
-            {pages.map((page) => (
+            {paths.map((path, index) => (
               <Button
-                key={page}
+                key={index}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                <Link
+                  href={path.routePath}
+                  color="inherit"
+                  sx={{ textDecoration: "none" }}
+                >
+                  {path.routeName}
+                </Link>
               </Button>
             ))}
           </Box>

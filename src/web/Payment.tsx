@@ -11,9 +11,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import Image from "next/image";
-import visa from "../public/visa.png";
-import { Cart } from "./Cart";
-import { Shipping } from "./Shipping";
+import visa from "../../public/visa.png";
 
 export function Payment() {
   const [card, setCard] = React.useState("");

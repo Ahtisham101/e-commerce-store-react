@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
-import { Checkout } from "../src/Checkout";
-
-import { HomePage } from "../src/HomePage";
+import { HomePage } from "../src/web/HomePage";
 
 const Home = () => {
   return <HomePage />;
