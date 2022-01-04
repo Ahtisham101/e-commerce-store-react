@@ -11,23 +11,34 @@ export function Checkout() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        py: "1rem",
+        py: { xs: "0rem", md: "1rem" },
       }}
     >
       <Box
         sx={{
-          border: "2px solid	rgb(242, 242, 242)",
-          borderRadius: "0.5rem",
-          p: "1rem",
+          border: { xs: "none", md: "2px solid	rgb(242, 242, 242)" },
+          borderRadius: { xs: "0rem", md: "0.5rem" },
+          p: { xs: "0rem", md: "1rem" },
         }}
       >
         <Typography
-          sx={{ textAlign: "center", fontWeight: "bold", fontSize: "2rem" }}
+          sx={{
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: "2rem",
+            mt: { xs: "1rem", md: "0rem" },
+          }}
         >
           Checkout
         </Typography>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Box sx={{ p: "1rem" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: { xs: "column", md: "row" },
+          }}
+        >
+          <Box sx={{ p: { xs: "0rem", md: "1rem" } }}>
             <Shipping />
             <Payment />
           </Box>

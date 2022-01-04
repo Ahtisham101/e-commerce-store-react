@@ -23,7 +23,7 @@ export function Cart() {
             width={130}
           />
         </Box>
-        <Box>
+        <Box sx={{ ml: "1rem" }}>
           <br />
           <Box component="span">Nike</Box>
           <br /> Free Run 3.0 Women
@@ -41,7 +41,7 @@ export function Cart() {
             justifyContent: "end",
           }}
         >
-          <Typography>$99.95</Typography>
+          <Typography sx={{ ml: "2rem" }}> $99.95</Typography>
         </Box>
       </Box>
       <Divider sx={{ mt: "1.2rem" }} />

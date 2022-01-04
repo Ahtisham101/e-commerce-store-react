@@ -12,6 +12,7 @@ import { Header } from "./Header";
 import Image from "next/image";
 import coverPic from "../public/cover.jpg";
 import Slider from "react-slick";
+import Link from "next/link";
 
 const itemData = [
   {
@@ -126,13 +127,20 @@ export function HomePage() {
               border: "1px solid 	rgb(166, 166, 166)",
             }}
           >
-            <img
-              width={300}
-              height={351}
-              src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/e425b9bb-d388-475f-a646-a44ff62f10f1/sportswear-swoosh-mens-woven-jacket-zwnqMl.jpg"
-              alt="logo"
-            />
-            <Typography sx={{ fontSize: "1.5rem" }}>Product name</Typography>
+            <Link href="/product">
+              <a style={{ textDecoration: "none" }}>
+                <img
+                  width={300}
+                  height={351}
+                  src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/e425b9bb-d388-475f-a646-a44ff62f10f1/sportswear-swoosh-mens-woven-jacket-zwnqMl.jpg"
+                  alt="logo"
+                />
+                <Typography sx={{ fontSize: "1.5rem", color: "black" }}>
+                  Product name
+                </Typography>
+              </a>
+            </Link>
+
             <Box
               sx={{
                 display: "flex",
