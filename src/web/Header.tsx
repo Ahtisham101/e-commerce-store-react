@@ -22,7 +22,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Link, TextField } from "@mui/material";
+import { Link, ListItemButton, TextField } from "@mui/material";
 
 import Image from "next/image";
 const paths = [
@@ -80,35 +80,37 @@ export const Header = () => {
 
   const list = (anchor: Anchor) => (
     <Box
-      sx={{ width: anchor === "left" || anchor === "right" ? "auto" : 400 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
+        {paths.map((path, index) => (
+          <ListItem button key={path.routeName}>
+            <ListItemButton>
+              <Link
+                href={path.routePath}
+                color="inherit"
+                sx={{ textDecoration: "none" }}
+              >
+                <ListItemText primary={path.routeName} />
+              </Link>
+            </ListItemButton>
           </ListItem>
         ))}
       </List>
     </Box>
   );
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  function handleClick(event) {
+    setAnchorEl(event.currentTarget);
+  }
+
+  function handleClose() {
+    setAnchorEl(null);
+  }
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -185,21 +187,54 @@ export const Header = () => {
               justifyContent: "center",
             }}
           >
-            {paths.map((path, index) => (
-              <Button
-                key={index}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+            <Button sx={{ my: 2, color: "white", display: "block" }}>
+              <Link href="/" color="inherit" sx={{ textDecoration: "none" }}>
+                Home
+              </Link>
+            </Button>
+            <Button
+              aria-owns={anchorEl ? "simple-menu" : undefined}
+              aria-haspopup="true"
+              onClick={handleClick}
+              onMouseEnter={handleClick}
+              sx={{ color: "white" }}
+            >
+              Products
+            </Button>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+              onMouseLeave={handleClose}
+            >
+              <Link
+                href="/jackets"
+                color="inherit"
+                sx={{ textDecoration: "none" }}
               >
-                <Link
-                  href={path.routePath}
-                  color="inherit"
-                  sx={{ textDecoration: "none" }}
-                >
-                  {path.routeName}
-                </Link>
-              </Button>
-            ))}
+                <MenuItem onClick={handleClose}>Jackets</MenuItem>
+              </Link>
+              <Link
+                href="/jeans"
+                color="inherit"
+                sx={{ textDecoration: "none" }}
+              >
+                <MenuItem onClick={handleClose}>jeans</MenuItem>
+              </Link>
+              <Link
+                href="/shirts"
+                color="inherit"
+                sx={{ textDecoration: "none" }}
+              >
+                <MenuItem onClick={handleClose}>shirts</MenuItem>
+              </Link>
+            </Menu>
+            <Button sx={{ my: 2, color: "white", display: "block" }}>
+              <Link href="/" color="inherit" sx={{ textDecoration: "none" }}>
+                Blog
+              </Link>
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -237,10 +272,10 @@ export const Header = () => {
                   >
                     <Box
                       sx={{
-                        width: "25rem",
+                        width: { xs: "10rem", md: "25rem" },
                         height: "30rem",
-                        mx: "3rem",
-                        mt: "4rem",
+                        mx: { xs: "1.5rem", md: "3rem" },
+                        mt: { xs: "0rem", md: "4rem" },
                       }}
                     >
                       <Typography sx={{ fontSize: "2rem", fontWeight: 600 }}>
@@ -249,6 +284,7 @@ export const Header = () => {
                       <Box
                         sx={{
                           display: "flex",
+                          flexDirection: { xs: "column", md: "row" },
                           alignItems: "center",
                           justifyContent: "center",
                           mt: "1rem",
@@ -261,26 +297,38 @@ export const Header = () => {
                           alt="logo"
                         />
 
-                        <Box sx={{ ml: "1rem" }}>
-                          <Typography>Product name</Typography>
+                        <Box sx={{ ml: { xs: "0rem", md: "1rem" } }}>
+                          <Typography
+                            sx={{
+                              fontWeight: "bold",
+                              mt: { xs: "1rem", md: "0rem" },
+                            }}
+                          >
+                            Product name
+                          </Typography>
                           <TextField
                             size="small"
                             sx={{ marginTop: "1rem" }}
                             id="outlined-number"
-                            label="Number"
+                            label="No of items"
                             type="number"
                             InputLabelProps={{
                               shrink: true,
                             }}
                           />
-                          <Typography sx={{ mt: "1rem" }}>Price</Typography>
+                          <Typography sx={{ mt: { xs: "0.3rem", md: "1rem" } }}>
+                            PKR 2,999
+                          </Typography>
                         </Box>
                       </Box>
 
                       <Box sx={{ display: "flex", justifyContent: "end" }}>
                         <Link href="/checkout">
                           <a>
-                            <Button variant="contained" sx={{ mt: "2rem" }}>
+                            <Button
+                              variant="contained"
+                              sx={{ mt: { xs: "1rem", md: "2rem" } }}
+                            >
                               Checkout
                             </Button>
                           </a>

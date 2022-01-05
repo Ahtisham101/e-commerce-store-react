@@ -7,7 +7,7 @@ interface Props {
 export function MainImage({ src }: Props) {
   return (
     <Box>
-      <img src={src} height={400} style={{}} />
+      <img src={src} height={400} />
     </Box>
   );
 }

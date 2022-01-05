@@ -8,7 +8,7 @@ interface Props {
 
 export function ImageGrid({ images, onSelect }: Props) {
   return (
-    <Grid container>
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
       {images.map((image, index) => {
         return (
           <img
@@ -20,6 +20,6 @@ export function ImageGrid({ images, onSelect }: Props) {
           />
         );
       })}
-    </Grid>
+    </Box>
   );
 }

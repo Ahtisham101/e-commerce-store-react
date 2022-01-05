@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
 import React from "react";
 import Image from "next/image";
 import coverPic from "../../public/cover.jpg";
@@ -59,9 +59,6 @@ const itemData = [
 ];
 
 export function HomePage() {
-  // const { data: itemList } = useItemListQuery();
-  // console.log(itemList);
-  // console.log(itemList);
   const settings = {
     dots: true,
     infinite: true,
@@ -73,6 +70,7 @@ export function HomePage() {
     cssEase: "ease",
     arrows: false,
   };
+
   return (
     <>
       <Box>
