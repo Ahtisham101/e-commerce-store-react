@@ -2,6 +2,9 @@ import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
 import React from "react";
 import Image from "next/image";
 import coverPic from "../../public/cover.jpg";
+import cover1 from "../../public/cover1.jpg";
+import cover2 from "../../public/cover2.jpg";
+import cover3 from "../../public/cover3.jpg";
 import Slider from "react-slick";
 import Link from "next/link";
 import { Layout } from "./Layout";
@@ -76,16 +79,13 @@ export function HomePage() {
       <Box>
         <Slider {...settings}>
           <Box>
-            <Image src={coverPic} alt="coverPic" height={2500} />
+            <Image src={coverPic} alt="coverPic" height={2300} />
           </Box>
           <Box>
-            <Image src={coverPic} alt="coverPic" height={2500} />
+            <Image src={cover2} alt="coverPic" height={2490} />
           </Box>
           <Box>
-            <Image src={coverPic} alt="coverPic" height={2500} />
-          </Box>
-          <Box>
-            <Image src={coverPic} alt="coverPic" height={2500} />
+            <Image src={cover3} alt="coverPic" height={2660} />
           </Box>
         </Slider>
       </Box>
@@ -144,7 +144,12 @@ export function HomePage() {
               </Button>
             </Box>
           </Box>
-          <Box sx={{ border: "1px solid 	rgb(166, 166, 166)" }}>
+          <Box
+            sx={{
+              border: "1px solid 	rgb(166, 166, 166)",
+              mt: { xs: "0.2rem", md: "0rem" },
+            }}
+          >
             <img
               src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/e425b9bb-d388-475f-a646-a44ff62f10f1/sportswear-swoosh-mens-woven-jacket-zwnqMl.jpg"
               alt="logo"
@@ -169,6 +174,7 @@ export function HomePage() {
             sx={{
               ml: { xs: "0rem", md: "1.3rem" },
               border: "1px solid 	rgb(166, 166, 166)",
+              mt: { xs: "0.2rem", md: "0rem" },
             }}
           >
             <img

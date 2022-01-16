@@ -22,7 +22,7 @@ export function Cart() {
             width={130}
           />
         </Box>
-        <Box sx={{ ml: "1rem" }}>
+        <Box sx={{ ml: { md: "1rem" } }}>
           <br />
           <Box component="span" sx={{ fontSize: "1.3rem", mt: "1rem" }}>
             Nike

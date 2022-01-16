@@ -19,7 +19,7 @@ export function Shipping() {
       <Box
         component="form"
         sx={{
-          "& > :not(style)": { m: 1 },
+          "& > :not(style)": { mx: { xs: "1rem", md: 0 }, m: 1 },
         }}
         noValidate
         autoComplete="off"

@@ -12,6 +12,7 @@ import {
 import React from "react";
 import Image from "next/image";
 import visa from "../../public/visa.png";
+import { useForm } from "react-hook-form";
 
 export function Payment() {
   const [card, setCard] = React.useState("");
@@ -19,6 +20,13 @@ export function Payment() {
   const handleChange = (event: SelectChangeEvent) => {
     setCard(event.target.value as string);
   };
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  // const onSubmit = (data) => console.log(data);
 
   return (
     <Box

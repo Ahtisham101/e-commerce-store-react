@@ -24,11 +24,12 @@ export function ProductPage() {
             <Box sx={{ display: { md: "block", xs: "none" }, mr: "0.7rem" }}>
               <ImageGrid images={images} onSelect={setSelectedImage} />
             </Box>
+
             <MainImage src={images[selectedImage]} />
-            <Box sx={{ display: { xs: "none" } }}>
-              <ImageGrid images={images} onSelect={setSelectedImage} />
-            </Box>
           </Box>
+        </Box>
+        <Box sx={{ display: { xs: "block", md: "none" } }}>
+          <ImageGrid images={images} onSelect={setSelectedImage} />
         </Box>
         <Box
           sx={{
